@@ -3,138 +3,184 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Andrew — Unity Developer</title>
-<meta name="description" content="Unity-разработчик. 6 лет с Unity, 1,5 года коммерческой разработки. Проекты с геймджемов, исходный код, стек.">
-<meta property="og:title" content="Andrew — Unity Developer">
-<meta property="og:description" content="Unity-разработчик. 6 лет с Unity, 1,5 года коммерческой разработки.">
-<meta property="og:image" content="https://storage.yandexcloud.net/myindie/games/0216644d-9ce0-464f-a28c-832120ac12e5/b_final-game-wallpaper.png">
+<title>Андрей (na9asaki) — Unity-разработчик</title>
+<meta name="description" content="Unity-разработчик, команда YTG. 6 лет с Unity, 1,5 года коммерческой разработки. Проекты с геймджемов, исходный код, стек.">
+<meta property="og:title" content="Андрей (na9asaki) — Unity-разработчик">
+<meta property="og:description" content="Unity-разработчик, команда YTG. 6 лет с Unity, 1,5 года коммерческой разработки.">
+<meta property="og:image" content="https://na9asaki.github.io/assets/games/myzay-0.jpg">
+<meta name="theme-color" content="#0b0b0e">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #fafafa;
-    --surface: #ffffff;
-    --text: #0a0a0a;
-    --muted: #6b6b6b;
-    --rule: #e4e4e4;
-    --accent: #2b59c3;
-    --accent-soft: rgba(43, 89, 195, .08);
-    --img-bg: #ededed;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #0c0c0d;
-      --surface: #141416;
-      --text: #ededed;
-      --muted: #8f8f94;
-      --rule: #26262a;
-      --accent: #7ea2ff;
-      --accent-soft: rgba(126, 162, 255, .1);
-      --img-bg: #1b1b1e;
-    }
-  }
-  :root[data-theme="dark"] {
-    --bg: #0c0c0d;
-    --surface: #141416;
-    --text: #ededed;
-    --muted: #8f8f94;
-    --rule: #26262a;
-    --accent: #7ea2ff;
-    --accent-soft: rgba(126, 162, 255, .1);
-    --img-bg: #1b1b1e;
+    --bg: #0b0b0e;
+    --bg-2: #101015;
+    --surface: #14141a;
+    --surface-2: #1a1a22;
+    --text: #ececf1;
+    --text-2: #b9b9c4;
+    --muted: #7d7d8a;
+    --rule: #24242d;
+    --accent: #ff9a3d;
+    --accent-2: #ffc46b;
+    --accent-soft: rgba(255, 154, 61, .12);
+    --cool: #6f8cff;
+    color-scheme: dark;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: var(--bg); }
   body {
     background: var(--bg);
     color: var(--text);
-    font: 16px/1.6 Geist, "Helvetica Neue", Arial, sans-serif;
+    font: 16px/1.6 Onest, "Helvetica Neue", Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
-  a { color: var(--text); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color .15s, color .15s; }
-  a:hover { text-decoration-color: var(--accent); color: var(--accent); }
-  .mono, .meta, td .tech, h2 { font-family: "Geist Mono", ui-monospace, monospace; }
-  .wrap { max-width: 920px; margin: 0 auto; padding: 0 16px; }
+  ::selection { background: var(--accent); color: #140b02; }
+  a { color: var(--text); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: color .15s, text-decoration-color .15s; }
+  a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+  .mono, .meta, td .tech, .eyebrow, .nick { font-family: "JetBrains Mono", ui-monospace, monospace; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 16px; position: relative; }
 
-  header { padding: 80px 0 48px; }
-  h1 { font-size: clamp(36px, 6vw, 48px); font-weight: 600; line-height: 1.1; letter-spacing: -.03em; }
-  .role { font-size: 18px; color: var(--muted); margin-top: 6px; }
-  .facts { margin-top: 28px; display: grid; grid-template-columns: 140px 1fr; gap: 8px 16px; max-width: 680px; }
-  .facts dt { color: var(--muted); font-size: 14px; padding-top: 2px; }
-  .contacts { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px; }
+  /* ---------- hero ---------- */
+  header { position: relative; padding: 96px 0 64px; overflow: hidden; }
+  header::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(600px 360px at 12% 0%, rgba(255, 154, 61, .20), transparent 70%),
+      radial-gradient(520px 320px at 90% 10%, rgba(111, 140, 255, .14), transparent 70%);
+  }
+  header::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(var(--rule) 1px, transparent 1px),
+      linear-gradient(90deg, var(--rule) 1px, transparent 1px);
+    background-size: 48px 48px;
+    opacity: .45;
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 30% 0%, #000 20%, transparent 75%);
+            mask-image: radial-gradient(ellipse 80% 70% at 30% 0%, #000 20%, transparent 75%);
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--text-2);
+    padding: 5px 10px; border: 1px solid var(--rule); border-radius: 999px; background: rgba(20, 20, 26, .7);
+  }
+  .eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
+  h1 {
+    font-family: "Inter Tight", Onest, sans-serif; font-weight: 600;
+    font-size: clamp(40px, 7vw, 64px); line-height: 1.05; letter-spacing: -.035em;
+    margin-top: 20px;
+  }
+  .nick {
+    display: inline-block; font-size: clamp(16px, 2.6vw, 22px); font-weight: 400; letter-spacing: 0;
+    color: var(--accent); vertical-align: middle; margin-left: 6px;
+  }
+  .role { font-size: clamp(18px, 2.4vw, 22px); color: var(--text-2); margin-top: 12px; }
+  .role b { color: var(--text); font-weight: 600; }
+  .facts {
+    margin-top: 36px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--rule); border: 1px solid var(--rule); border-radius: 12px; overflow: hidden;
+  }
+  .fact { background: rgba(16, 16, 21, .85); padding: 16px 18px; }
+  .fact dt { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; font-family: "JetBrains Mono", monospace; }
+  .fact dd { margin-top: 6px; font-size: 15px; color: var(--text); }
+  .fact dd strong { font-family: "Inter Tight", sans-serif; font-weight: 600; font-size: 20px; color: var(--accent); letter-spacing: -.01em; }
+  @media (max-width: 720px) { .facts { grid-template-columns: 1fr; } }
+  .contacts { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 10px; }
 
   .pill {
     display: inline-flex; align-items: center; justify-content: center; text-align: center;
-    padding: 6px 12px; border: 1px solid var(--rule); border-radius: 999px;
+    padding: 8px 16px; border: 1px solid var(--rule); border-radius: 999px;
     background: var(--surface); color: var(--text);
-    font-size: 14px; font-weight: 500; text-decoration: none; line-height: 1.4;
-    transition: border-color .15s, background .15s, color .15s;
+    font-size: 14px; font-weight: 500; text-decoration: none; line-height: 1.3;
+    transition: border-color .15s, background .15s, color .15s, box-shadow .15s;
   }
-  .pill:hover { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
-  .pill.primary { background: var(--text); border-color: var(--text); color: var(--bg); }
-  .pill.primary:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .pill:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+  .pill.primary { background: var(--accent); border-color: var(--accent); color: #1a0e02; font-weight: 600; }
+  .pill.primary:hover { background: var(--accent-2); border-color: var(--accent-2); color: #1a0e02; box-shadow: 0 0 0 4px var(--accent-soft); }
 
-  section { padding: 32px 0 48px; }
+  /* ---------- sections ---------- */
+  section { padding: 56px 0; }
+  section + section { border-top: 1px solid var(--rule); }
   h2 {
     display: flex; align-items: center; gap: 14px;
-    font-size: 12px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 28px;
+    font-family: "Inter Tight", Onest, sans-serif; font-weight: 600;
+    font-size: clamp(22px, 3vw, 28px); letter-spacing: -.025em; margin-bottom: 28px;
   }
-  h2::after {
-    content: ""; flex: 1; height: 1px;
-    background: linear-gradient(to right, var(--rule), var(--rule) 70%, transparent);
+  h2::before {
+    content: ""; width: 10px; height: 10px; flex: none; border-radius: 2px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    box-shadow: 0 0 14px rgba(255, 154, 61, .5);
   }
 
+  /* ---------- games ---------- */
   .games { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  @media (max-width: 640px) { .games { grid-template-columns: 1fr; } }
+  @media (max-width: 680px) { .games { grid-template-columns: 1fr; } }
   .game {
-    display: flex; flex-direction: column;
-    background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; overflow: hidden;
-    transition: border-color .15s;
+    position: relative; display: flex; flex-direction: column;
+    background: linear-gradient(180deg, var(--surface-2), var(--surface));
+    border: 1px solid var(--rule); border-radius: 14px; overflow: hidden;
+    transition: border-color .2s, transform .2s, box-shadow .2s;
   }
-  .game:hover { border-color: color-mix(in srgb, var(--accent) 40%, var(--rule)); }
-  .game .cover { display: block; overflow: hidden; border-bottom: 1px solid var(--rule); }
-  .game img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--img-bg); transition: transform .4s ease; }
-  .game:hover img { transform: scale(1.02); }
-  .game .body { padding: 16px 18px 18px; display: flex; flex-direction: column; flex: 1; }
-  .game h3 { font-size: 18px; font-weight: 600; letter-spacing: -.01em; }
-  .game .meta { font-size: 12px; color: var(--muted); margin-top: 2px; }
-  .game p { font-size: 15px; margin-top: 8px; color: color-mix(in srgb, var(--text) 85%, var(--muted)); flex: 1; }
-  .game .links { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .game:hover {
+    border-color: rgba(255, 154, 61, .45);
+    box-shadow: 0 18px 40px -18px rgba(255, 154, 61, .35);
+  }
+  .game .cover { display: block; position: relative; }
+  .slides { position: relative; aspect-ratio: 16 / 9; background: var(--bg-2); overflow: hidden; }
+  .slides img {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    opacity: 0; transform: scale(1.04);
+    transition: opacity 1.2s ease, transform 5s ease-out;
+  }
+  .slides img.active { opacity: 1; transform: scale(1); }
+  .slides::after {
+    content: ""; position: absolute; inset: auto 0 0 0; height: 45%; pointer-events: none;
+    background: linear-gradient(to top, rgba(20, 20, 26, .9), transparent);
+  }
+  .dots { position: absolute; right: 12px; bottom: 12px; z-index: 2; display: flex; gap: 5px; }
+  .dots span { width: 6px; height: 6px; border-radius: 3px; background: rgba(255, 255, 255, .35); transition: width .3s, background .3s; }
+  .dots span.on { width: 18px; background: var(--accent); }
+  @media (prefers-reduced-motion: reduce) { .slides img { transition: none; transform: none; } }
+  .game .body { padding: 4px 20px 20px; display: flex; flex-direction: column; flex: 1; }
+  .game h3 { font-family: "Inter Tight", Onest, sans-serif; font-size: 21px; font-weight: 600; letter-spacing: -.02em; }
+  .game .meta { font-size: 12px; color: var(--accent); margin-top: 4px; opacity: .9; }
+  .game p { font-size: 15px; margin-top: 10px; color: var(--text-2); flex: 1; }
+  .game .links { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
 
-  table { width: 100%; border-collapse: collapse; font-size: 15px; }
-  td { padding: 12px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
-  td:first-child { width: 250px; padding-right: 16px; }
+  /* ---------- tables ---------- */
+  table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 15px; border: 1px solid var(--rule); border-radius: 12px; overflow: hidden; }
+  td { padding: 14px 18px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--text-2); }
+  tr:last-child td { border-bottom: 0; }
+  tr { transition: background .15s; }
+  tr:hover { background: var(--surface); }
+  td:first-child { width: 270px; padding-right: 16px; color: var(--text); }
+  td:first-child a { font-weight: 600; }
   td .tech { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
-  .stack td:first-child { color: var(--muted); font-size: 14px; }
+  .stack td:first-child { font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--accent); letter-spacing: .02em; }
   @media (max-width: 640px) {
     table, tbody, tr, td { display: block; width: 100%; }
     td { border: 0; padding: 0; }
-    tr { padding: 12px 0; border-bottom: 1px solid var(--rule); }
-    td:first-child { width: auto; margin-bottom: 2px; }
-    .facts { grid-template-columns: 1fr; gap: 0; }
-    .facts dd { margin-bottom: 10px; }
+    tr { padding: 14px 16px; border-bottom: 1px solid var(--rule); }
+    tr:last-child { border-bottom: 0; }
+    td:first-child { width: auto; margin-bottom: 4px; }
   }
 
-  .text p { max-width: 680px; }
-  .text ul { margin-top: 12px; list-style: none; max-width: 680px; }
-  .text li { position: relative; padding-left: 18px; margin: 6px 0; }
-  .text li::before { content: ""; position: absolute; left: 0; top: .72em; width: 8px; height: 1px; background: var(--accent); }
-
-  .last { padding-bottom: 80px; }
+  .last { padding-bottom: 96px; }
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap">
-    <h1>Andrew</h1>
-    <div class="role">Unity-разработчик</div>
+    <span class="eyebrow"><span class="dot"></span>Unity-разработчик</span>
+    <h1>Андрей <span class="nick">(na9asaki)</span></h1>
+    <p class="role">Unity-разработчик в команде <b>YTG</b></p>
     <dl class="facts">
-      <dt>Опыт</dt>
-      <dd>6 лет с Unity, из них 1,5 года коммерческой разработки в компании</dd>
-      <dt>Направления</dt>
-      <dd>3D-игры, геймплейные системы, архитектура проектов, шейдеры и VFX</dd>
+      <div class="fact"><dt>Опыт</dt><dd><strong>6 лет</strong> с Unity, из них 1,5 года коммерческой разработки в компании</dd></div>
+      <div class="fact"><dt>Команда</dt><dd><strong>YTG</strong></dd></div>
+      <div class="fact"><dt>Направления</dt><dd>3D-игры, геймплейные системы, архитектура, шейдеры и VFX</dd></div>
     </dl>
     <div class="contacts">
       <a class="pill primary" href="https://github.com/Na9asaki" target="_blank" rel="noopener">GitHub</a>
@@ -150,48 +196,48 @@
     <div class="games">
 
       <article class="game">
-        <a class="cover" href="https://myindie.net/games/game/myzay_pqz" target="_blank" rel="noopener"><img src="https://storage.yandexcloud.net/myindie/games/0216644d-9ce0-464f-a28c-832120ac12e5/b_final-game-wallpaper.png" alt="MyZay — обложка" loading="lazy"></a>
+        <a class="cover" href="https://myindie.net/games/game/myzay_pqz" target="_blank" rel="noopener"><div class="slides"><img src="assets/games/myzay-0.jpg" alt="MyZay — скриншот 1" class="active"><img src="assets/games/myzay-1.jpg" alt="MyZay — скриншот 2" loading="lazy"><img src="assets/games/myzay-2.jpg" alt="MyZay — скриншот 3" loading="lazy"><img src="assets/games/myzay-3.jpg" alt="MyZay — скриншот 4" loading="lazy"></div></a>
         <div class="body">
-        <h3>MyZay</h3>
-        <div class="meta">ГеймДжем ВШЭ II · Аркада · Windows</div>
-        <p>Аркада о спасении зайцев: игрок управляет лодкой деда Мазая и подбирает тонущих зайцев.</p>
-        <div class="links"><a class="pill primary" href="https://myindie.net/games/game/myzay_pqz" target="_blank" rel="noopener">MyIndie</a></div>
+          <h3>MyZay</h3>
+          <div class="meta">ГеймДжем ВШЭ II · Аркада · Windows</div>
+          <p>Аркада о спасении зайцев: игрок управляет лодкой деда Мазая и подбирает тонущих зайцев.</p>
+          <div class="links"><a class="pill primary" href="https://myindie.net/games/game/myzay_pqz" target="_blank" rel="noopener">MyIndie</a></div>
         </div>
       </article>
 
       <article class="game">
-        <a class="cover" href="https://na9asaki.itch.io/the-root-cause" target="_blank" rel="noopener"><img src="https://img.itch.zone/aW1nLzMxMTE0NzcxLnBuZw==/original/sNod8a.png" alt="The Root Cause — обложка" loading="lazy"></a>
+        <a class="cover" href="https://na9asaki.itch.io/the-root-cause" target="_blank" rel="noopener"><div class="slides"><img src="assets/games/rootcause-0.jpg" alt="The Root Cause — скриншот 1" class="active"><img src="assets/games/rootcause-1.jpg" alt="The Root Cause — скриншот 2" loading="lazy"><img src="assets/games/rootcause-2.jpg" alt="The Root Cause — скриншот 3" loading="lazy"><img src="assets/games/rootcause-3.jpg" alt="The Root Cause — скриншот 4" loading="lazy"><img src="assets/games/rootcause-4.jpg" alt="The Root Cause — скриншот 5" loading="lazy"><img src="assets/games/rootcause-5.jpg" alt="The Root Cause — скриншот 6" loading="lazy"><img src="assets/games/rootcause-6.jpg" alt="The Root Cause — скриншот 7" loading="lazy"></div></a>
         <div class="body">
-        <h3>The Root Cause</h3>
-        <div class="meta">Roguelite · Tower defense · Браузер</div>
-        <p>Оборона деревни с помощью голема: управление населением, строительство, назначение профессий и жертвы ради выживания.</p>
-        <div class="links"><a class="pill primary" href="https://na9asaki.itch.io/the-root-cause" target="_blank" rel="noopener">itch.io</a></div>
+          <h3>The Root Cause</h3>
+          <div class="meta">Roguelite · Tower defense · Браузер</div>
+          <p>Оборона деревни с помощью голема: управление населением, строительство, назначение профессий и жертвы ради выживания.</p>
+          <div class="links"><a class="pill primary" href="https://na9asaki.itch.io/the-root-cause" target="_blank" rel="noopener">itch.io</a></div>
         </div>
       </article>
 
       <article class="game">
-        <a class="cover" href="https://na9asaki.itch.io/voodoo-child" target="_blank" rel="noopener"><img src="https://img.itch.zone/aW1nLzIzNjkwMDUwLmpwZw==/original/XJDF00.jpg" alt="Voodoo Child — обложка" loading="lazy"></a>
+        <a class="cover" href="https://na9asaki.itch.io/voodoo-child" target="_blank" rel="noopener"><div class="slides"><img src="assets/games/voodoo-0.jpg" alt="Voodoo Child — скриншот 1" class="active"><img src="assets/games/voodoo-1.jpg" alt="Voodoo Child — скриншот 2" loading="lazy"><img src="assets/games/voodoo-2.jpg" alt="Voodoo Child — скриншот 3" loading="lazy"><img src="assets/games/voodoo-3.jpg" alt="Voodoo Child — скриншот 4" loading="lazy"></div></a>
         <div class="body">
-        <h3>Voodoo Child</h3>
-        <div class="meta">MyIndie GameJam Lvl6 «Точка невозврата» · Симулятор · 3D</div>
-        <p>Нарративный симулятор шамана вуду: крафт кукол из предметов, выполнение заказов, баланс кармы и репутации.</p>
-        <div class="links">
-          <a class="pill primary" href="https://na9asaki.itch.io/voodoo-child" target="_blank" rel="noopener">itch.io</a>
-          <a class="pill" href="https://github.com/Na9asaki/VoodooChild" target="_blank" rel="noopener">Код</a>
-        </div>
+          <h3>Voodoo Child</h3>
+          <div class="meta">MyIndie GameJam Lvl6 «Точка невозврата» · Симулятор · 3D</div>
+          <p>Нарративный симулятор шамана вуду: крафт кукол из предметов, выполнение заказов, баланс кармы и репутации.</p>
+          <div class="links">
+            <a class="pill primary" href="https://na9asaki.itch.io/voodoo-child" target="_blank" rel="noopener">itch.io</a>
+            <a class="pill" href="https://github.com/Na9asaki/VoodooChild" target="_blank" rel="noopener">Код</a>
+          </div>
         </div>
       </article>
 
       <article class="game">
-        <a class="cover" href="https://na9asaki.itch.io/sweet-deal" target="_blank" rel="noopener"><img src="https://img.itch.zone/aW1nLzIyOTY1NTY4LnBuZw==/original/SLccZ0.png" alt="Sweet Deal — обложка" loading="lazy"></a>
+        <a class="cover" href="https://na9asaki.itch.io/sweet-deal" target="_blank" rel="noopener"><div class="slides"><img src="assets/games/sweetdeal-0.jpg" alt="Sweet Deal — скриншот 1" class="active"><img src="assets/games/sweetdeal-1.jpg" alt="Sweet Deal — скриншот 2" loading="lazy"><img src="assets/games/sweetdeal-2.jpg" alt="Sweet Deal — скриншот 3" loading="lazy"><img src="assets/games/sweetdeal-3.jpg" alt="Sweet Deal — скриншот 4" loading="lazy"></div></a>
         <div class="body">
-        <h3>Sweet Deal</h3>
-        <div class="meta">Brackeys Game Jam · Roguelite · 3D</div>
-        <p>Стелс-экстракшн: вылазки в процедурно генерируемые подземелья за печеньем и его продажа в собственной пекарне.</p>
-        <div class="links">
-          <a class="pill primary" href="https://na9asaki.itch.io/sweet-deal" target="_blank" rel="noopener">itch.io</a>
-          <a class="pill" href="https://github.com/Na9asaki/SweetDeal" target="_blank" rel="noopener">Код</a>
-        </div>
+          <h3>Sweet Deal</h3>
+          <div class="meta">Brackeys Game Jam · Roguelite · 3D</div>
+          <p>Стелс-экстракшн: вылазки в процедурно генерируемые подземелья за печеньем и его продажа в собственной пекарне.</p>
+          <div class="links">
+            <a class="pill primary" href="https://na9asaki.itch.io/sweet-deal" target="_blank" rel="noopener">itch.io</a>
+            <a class="pill" href="https://github.com/Na9asaki/SweetDeal" target="_blank" rel="noopener">Код</a>
+          </div>
         </div>
       </article>
 
@@ -236,29 +282,60 @@
     <h2>Стек</h2>
     <table class="stack">
       <tr><td>Движок и язык</td><td>Unity 6, C#, Editor tooling, Unity Profiler</td></tr>
-      <tr><td>Архитектура и DI</td><td>Zenject / Extenject, VContainer, ScriptableObjects, EventBus, MessagePipe</td></tr>
+      <tr><td>Архитектура</td><td>Zenject / Extenject, EventBus, MVC и MVVM для UI, data-driven подход: ECS, DOTS</td></tr>
       <tr><td>Асинхронность</td><td>UniTask, UniRx, R3</td></tr>
-      <tr><td>Библиотеки и пакеты</td><td>DOTween, Odin Inspector, Newtonsoft.Json, Input System, Cinemachine, TextMeshPro, Timeline</td></tr>
+      <tr><td>Библиотеки и пакеты</td><td>DOTween, Odin Inspector, Input System, Cinemachine, TextMeshPro, Timeline</td></tr>
       <tr><td>Контент и ассеты</td><td>Addressables, Asset Bundles, Localization</td></tr>
       <tr><td>Графика</td><td>URP, RenderGraph, HLSL, Shader Graph, Renderer Features, VFX Graph, Particle System</td></tr>
-      <tr><td>Мультиплеер</td><td>Netcode for GameObjects, Photon, Mirror</td></tr>
+      <tr><td>Мультиплеер</td><td>Ко-оп и мультиплеер на FishNet</td></tr>
+      <tr><td>Платформы и монетизация</td><td>Интеграция со Steam (Steamworks), биллинг-сервисы, in-app purchasing</td></tr>
       <tr><td>CI/CD и инфраструктура</td><td>Git, GitLab CI, GitHub Actions, GameCI, Unity Build Automation, Docker</td></tr>
-      <tr><td>Аналитика и сервисы</td><td>GameAnalytics, Firebase, AppMetrica, Unity Gaming Services</td></tr>
+      <tr><td>Аналитика</td><td>GameAnalytics, Firebase</td></tr>
     </table>
   </div>
 </section>
 
-<section id="ai" class="text last">
+<section id="ai" class="last">
   <div class="wrap">
     <h2>Работа с LLM</h2>
-    <p>В ежедневной разработке использую Claude Code и OpenAI Codex.</p>
-    <ul>
-      <li>Собственные skills и инструкции для агентов под конвенции конкретного проекта</li>
-      <li>Код-ревью merge request'ов, разбор упавших CI-пайплайнов, подготовка описаний MR</li>
-      <li>Вёрстка UI по макетам, работа с Unity Editor, подготовка 3D-ассетов</li>
-    </ul>
+    <table class="stack">
+      <tr><td>Инструменты</td><td>Claude Code, OpenAI Codex</td></tr>
+      <tr><td>Skills</td><td>Собственные skills и инструкции для агентов под конвенции проекта</td></tr>
+      <tr><td>Оркестрация</td><td>Распределение задачи между агентами: планирование, реализация, ревью</td></tr>
+      <tr><td>Автоматизация</td><td>Запуск агентов по web-hook'ам и в GitHub Actions: ревью MR, разбор упавших пайплайнов</td></tr>
+      <tr><td>Интеграции</td><td>Подключение LLM к сервисам и внутренним инструментам через API</td></tr>
+    </table>
   </div>
 </section>
 
+<script>
+  (function () {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.querySelectorAll('.slides').forEach(function (box, idx) {
+      var imgs = box.querySelectorAll('img');
+      if (imgs.length < 2) return;
+      var dots = document.createElement('div');
+      dots.className = 'dots';
+      imgs.forEach(function (_, k) {
+        var d = document.createElement('span');
+        if (k === 0) d.className = 'on';
+        dots.appendChild(d);
+      });
+      box.parentNode.appendChild(dots);
+      if (reduce) return;
+      var i = 0, paused = false, card = box.closest('.game');
+      card.addEventListener('mouseenter', function () { paused = true; });
+      card.addEventListener('mouseleave', function () { paused = false; });
+      setTimeout(function () {
+        setInterval(function () {
+          if (paused || document.hidden) return;
+          imgs[i].classList.remove('active'); dots.children[i].classList.remove('on');
+          i = (i + 1) % imgs.length;
+          imgs[i].classList.add('active'); dots.children[i].classList.add('on');
+        }, 4000);
+      }, idx * 700);
+    });
+  })();
+</script>
 </body>
 </html>
