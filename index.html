@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Andrew — Unity Developer</title>
+<meta name="description" content="Unity-разработчик. 6 лет с Unity, 1,5 года коммерческой разработки. Проекты с геймджемов, исходный код, стек.">
+<meta property="og:title" content="Andrew — Unity Developer">
+<meta property="og:description" content="Unity-разработчик. 6 лет с Unity, 1,5 года коммерческой разработки.">
+<meta property="og:image" content="https://storage.yandexcloud.net/myindie/games/0216644d-9ce0-464f-a28c-832120ac12e5/b_final-game-wallpaper.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafafa;
+    --surface: #ffffff;
+    --text: #0a0a0a;
+    --muted: #6b6b6b;
+    --rule: #e4e4e4;
+    --accent: #2b59c3;
+    --accent-soft: rgba(43, 89, 195, .08);
+    --img-bg: #ededed;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0c0c0d;
+      --surface: #141416;
+      --text: #ededed;
+      --muted: #8f8f94;
+      --rule: #26262a;
+      --accent: #7ea2ff;
+      --accent-soft: rgba(126, 162, 255, .1);
+      --img-bg: #1b1b1e;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0c0c0d;
+    --surface: #141416;
+    --text: #ededed;
+    --muted: #8f8f94;
+    --rule: #26262a;
+    --accent: #7ea2ff;
+    --accent-soft: rgba(126, 162, 255, .1);
+    --img-bg: #1b1b1e;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.6 Geist, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--text); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color .15s, color .15s; }
+  a:hover { text-decoration-color: var(--accent); color: var(--accent); }
+  .mono, .meta, td .tech, h2 { font-family: "Geist Mono", ui-monospace, monospace; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 16px; }
+
+  header { padding: 80px 0 48px; }
+  h1 { font-size: clamp(36px, 6vw, 48px); font-weight: 600; line-height: 1.1; letter-spacing: -.03em; }
+  .role { font-size: 18px; color: var(--muted); margin-top: 6px; }
+  .facts { margin-top: 28px; display: grid; grid-template-columns: 140px 1fr; gap: 8px 16px; max-width: 680px; }
+  .facts dt { color: var(--muted); font-size: 14px; padding-top: 2px; }
+  .contacts { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px; }
+
+  .pill {
+    display: inline-flex; align-items: center; justify-content: center; text-align: center;
+    padding: 6px 12px; border: 1px solid var(--rule); border-radius: 999px;
+    background: var(--surface); color: var(--text);
+    font-size: 14px; font-weight: 500; text-decoration: none; line-height: 1.4;
+    transition: border-color .15s, background .15s, color .15s;
+  }
+  .pill:hover { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
+  .pill.primary { background: var(--text); border-color: var(--text); color: var(--bg); }
+  .pill.primary:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  section { padding: 32px 0 48px; }
+  h2 {
+    display: flex; align-items: center; gap: 14px;
+    font-size: 12px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 28px;
+  }
+  h2::after {
+    content: ""; flex: 1; height: 1px;
+    background: linear-gradient(to right, var(--rule), var(--rule) 70%, transparent);
+  }
+
+  .games { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  @media (max-width: 640px) { .games { grid-template-columns: 1fr; } }
+  .game {
+    display: flex; flex-direction: column;
+    background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; overflow: hidden;
+    transition: border-color .15s;
+  }
+  .game:hover { border-color: color-mix(in srgb, var(--accent) 40%, var(--rule)); }
+  .game .cover { display: block; overflow: hidden; border-bottom: 1px solid var(--rule); }
+  .game img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--img-bg); transition: transform .4s ease; }
+  .game:hover img { transform: scale(1.02); }
+  .game .body { padding: 16px 18px 18px; display: flex; flex-direction: column; flex: 1; }
+  .game h3 { font-size: 18px; font-weight: 600; letter-spacing: -.01em; }
+  .game .meta { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .game p { font-size: 15px; margin-top: 8px; color: color-mix(in srgb, var(--text) 85%, var(--muted)); flex: 1; }
+  .game .links { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  td { padding: 12px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  td:first-child { width: 250px; padding-right: 16px; }
+  td .tech { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
+  .stack td:first-child { color: var(--muted); font-size: 14px; }
+  @media (max-width: 640px) {
+    table, tbody, tr, td { display: block; width: 100%; }
+    td { border: 0; padding: 0; }
+    tr { padding: 12px 0; border-bottom: 1px solid var(--rule); }
+    td:first-child { width: auto; margin-bottom: 2px; }
+    .facts { grid-template-columns: 1fr; gap: 0; }
+    .facts dd { margin-bottom: 10px; }
+  }
+
+  .text p { max-width: 680px; }
+  .text ul { margin-top: 12px; list-style: none; max-width: 680px; }
+  .text li { position: relative; padding-left: 18px; margin: 6px 0; }
+  .text li::before { content: ""; position: absolute; left: 0; top: .72em; width: 8px; height: 1px; background: var(--accent); }
+
+  .last { padding-bottom: 80px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>Andrew</h1>
+    <div class="role">Unity-разработчик</div>
+    <dl class="facts">
+      <dt>Опыт</dt>
+      <dd>6 лет с Unity, из них 1,5 года коммерческой разработки в компании</dd>
+      <dt>Направления</dt>
+      <dd>3D-игры, геймплейные системы, архитектура проектов, шейдеры и VFX</dd>
+    </dl>
+    <div class="contacts">
+      <a class="pill primary" href="https://github.com/Na9asaki" target="_blank" rel="noopener">GitHub</a>
+      <a class="pill" href="https://na9asaki.itch.io/" target="_blank" rel="noopener">itch.io</a>
+      <a class="pill" href="https://myindie.net/games/game/myzay_pqz" target="_blank" rel="noopener">MyIndie</a>
+    </div>
+  </div>
+</header>
+
+<section id="games">
+  <div class="wrap">
+    <h2>Проекты с геймджемов</h2>
+    <div class="games">
+
+      <article class="game">
+        <a class="cover" href="https://myindie.net/games/game/myzay_pqz" target="_blank" rel="noopener"><img src="https://storage.yandexcloud.net/myindie/games/0216644d-9ce0-464f-a28c-832120ac12e5/b_final-game-wallpaper.png" alt="MyZay — обложка" loading="lazy"></a>
+        <div class="body">
+        <h3>MyZay</h3>
+        <div class="meta">ГеймДжем ВШЭ II · Аркада · Windows</div>
+        <p>Аркада о спасении зайцев: игрок управляет лодкой деда Мазая и подбирает тонущих зайцев.</p>
+        <div class="links"><a class="pill primary" href="https://myindie.net/games/game/myzay_pqz" target="_blank" rel="noopener">MyIndie</a></div>
+        </div>
+      </article>
+
+      <article class="game">
+        <a class="cover" href="https://na9asaki.itch.io/the-root-cause" target="_blank" rel="noopener"><img src="https://img.itch.zone/aW1nLzMxMTE0NzcxLnBuZw==/original/sNod8a.png" alt="The Root Cause — обложка" loading="lazy"></a>
+        <div class="body">
+        <h3>The Root Cause</h3>
+        <div class="meta">Roguelite · Tower defense · Браузер</div>
+        <p>Оборона деревни с помощью голема: управление населением, строительство, назначение профессий и жертвы ради выживания.</p>
+        <div class="links"><a class="pill primary" href="https://na9asaki.itch.io/the-root-cause" target="_blank" rel="noopener">itch.io</a></div>
+        </div>
+      </article>
+
+      <article class="game">
+        <a class="cover" href="https://na9asaki.itch.io/voodoo-child" target="_blank" rel="noopener"><img src="https://img.itch.zone/aW1nLzIzNjkwMDUwLmpwZw==/original/XJDF00.jpg" alt="Voodoo Child — обложка" loading="lazy"></a>
+        <div class="body">
+        <h3>Voodoo Child</h3>
+        <div class="meta">MyIndie GameJam Lvl6 «Точка невозврата» · Симулятор · 3D</div>
+        <p>Нарративный симулятор шамана вуду: крафт кукол из предметов, выполнение заказов, баланс кармы и репутации.</p>
+        <div class="links">
+          <a class="pill primary" href="https://na9asaki.itch.io/voodoo-child" target="_blank" rel="noopener">itch.io</a>
+          <a class="pill" href="https://github.com/Na9asaki/VoodooChild" target="_blank" rel="noopener">Код</a>
+        </div>
+        </div>
+      </article>
+
+      <article class="game">
+        <a class="cover" href="https://na9asaki.itch.io/sweet-deal" target="_blank" rel="noopener"><img src="https://img.itch.zone/aW1nLzIyOTY1NTY4LnBuZw==/original/SLccZ0.png" alt="Sweet Deal — обложка" loading="lazy"></a>
+        <div class="body">
+        <h3>Sweet Deal</h3>
+        <div class="meta">Brackeys Game Jam · Roguelite · 3D</div>
+        <p>Стелс-экстракшн: вылазки в процедурно генерируемые подземелья за печеньем и его продажа в собственной пекарне.</p>
+        <div class="links">
+          <a class="pill primary" href="https://na9asaki.itch.io/sweet-deal" target="_blank" rel="noopener">itch.io</a>
+          <a class="pill" href="https://github.com/Na9asaki/SweetDeal" target="_blank" rel="noopener">Код</a>
+        </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="github">
+  <div class="wrap">
+    <h2>Исходный код</h2>
+    <table>
+      <tr>
+        <td><a href="https://github.com/Na9asaki/Orion" target="_blank" rel="noopener">Orion</a><span class="tech">Zenject, ScriptableObjects</span></td>
+        <td>Модульный фреймворк для 3D-игр: система сущностей на ScriptableObjects, EventBus, централизованный игровой цикл, модули с DI.</td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/Na9asaki/vfx-shaders-renderer-features" target="_blank" rel="noopener">vfx-shaders-renderer-features</a><span class="tech">URP, RenderGraph</span></td>
+        <td>Outline-эффект для URP на RenderGraph API (Unity 6+), устанавливается через Package Manager.</td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/Na9asaki/Unity-CMS" target="_blank" rel="noopener">Unity-CMS</a><span class="tech">Editor tooling, JSON</span></td>
+        <td>Локальная система управления контентом для Unity-проектов на JSON-файлах.</td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/Na9asaki/VoodooChild" target="_blank" rel="noopener">VoodooChild</a><span class="tech">Unity, C#</span></td>
+        <td>Исходный код игры Voodoo Child.</td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/Na9asaki/SweetDeal" target="_blank" rel="noopener">SweetDeal</a><span class="tech">Unity, C#</span></td>
+        <td>Исходный код игры Sweet Deal, процедурная генерация подземелий.</td>
+      </tr>
+      <tr>
+        <td><a href="https://github.com/Na9asaki/Debugging-Reality" target="_blank" rel="noopener">Debugging-Reality</a><span class="tech">Unity, C#</span></td>
+        <td>Нарративный психологический хоррор с линейной структурой из семи игровых дней.</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="wrap">
+    <h2>Стек</h2>
+    <table class="stack">
+      <tr><td>Движок и язык</td><td>Unity 6, C#, Editor tooling, Unity Profiler</td></tr>
+      <tr><td>Архитектура и DI</td><td>Zenject / Extenject, VContainer, ScriptableObjects, EventBus, MessagePipe</td></tr>
+      <tr><td>Асинхронность</td><td>UniTask, UniRx, R3</td></tr>
+      <tr><td>Библиотеки и пакеты</td><td>DOTween, Odin Inspector, Newtonsoft.Json, Input System, Cinemachine, TextMeshPro, Timeline</td></tr>
+      <tr><td>Контент и ассеты</td><td>Addressables, Asset Bundles, Localization</td></tr>
+      <tr><td>Графика</td><td>URP, RenderGraph, HLSL, Shader Graph, Renderer Features, VFX Graph, Particle System</td></tr>
+      <tr><td>Мультиплеер</td><td>Netcode for GameObjects, Photon, Mirror</td></tr>
+      <tr><td>CI/CD и инфраструктура</td><td>Git, GitLab CI, GitHub Actions, GameCI, Unity Build Automation, Docker</td></tr>
+      <tr><td>Аналитика и сервисы</td><td>GameAnalytics, Firebase, AppMetrica, Unity Gaming Services</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="ai" class="text last">
+  <div class="wrap">
+    <h2>Работа с LLM</h2>
+    <p>В ежедневной разработке использую Claude Code и OpenAI Codex.</p>
+    <ul>
+      <li>Собственные skills и инструкции для агентов под конвенции конкретного проекта</li>
+      <li>Код-ревью merge request'ов, разбор упавших CI-пайплайнов, подготовка описаний MR</li>
+      <li>Вёрстка UI по макетам, работа с Unity Editor, подготовка 3D-ассетов</li>
+    </ul>
+  </div>
+</section>
+
+</body>
+</html>
