@@ -72,9 +72,17 @@
     font-size: clamp(40px, 7vw, 64px); line-height: 1.05; letter-spacing: -.035em;
     margin-top: 20px;
   }
+  .id { display: flex; align-items: center; gap: 24px; margin-top: 24px; }
+  .id h1 { margin-top: 0; }
+  .avatar {
+    width: 112px; height: 112px; flex: none; object-fit: cover;
+    border-radius: 24px; border: 1px solid rgba(255, 154, 61, .5);
+    box-shadow: 0 0 0 4px var(--accent-soft), 0 12px 32px -10px rgba(255, 154, 61, .45);
+  }
+  @media (max-width: 560px) { .id { gap: 16px; } .avatar { width: 76px; height: 76px; border-radius: 18px; } }
   .nick {
-    display: inline-block; font-size: clamp(16px, 2.6vw, 22px); font-weight: 400; letter-spacing: 0;
-    color: var(--accent); vertical-align: middle; margin-left: 6px;
+    display: block; font-size: clamp(16px, 2.4vw, 20px); font-weight: 400; letter-spacing: 0;
+    color: var(--accent); margin-top: 6px;
   }
   .role { font-size: clamp(18px, 2.4vw, 22px); color: var(--text-2); margin-top: 12px; }
   .role b { color: var(--text); font-weight: 600; }
@@ -175,8 +183,13 @@
 <header>
   <div class="wrap">
     <span class="eyebrow"><span class="dot"></span>Unity-разработчик</span>
-    <h1>Андрей <span class="nick">(na9asaki)</span></h1>
-    <p class="role">Unity-разработчик в команде <b>YTG</b></p>
+    <div class="id">
+      <img class="avatar" src="assets/avatar.jpg" alt="Аватар na9asaki" width="112" height="112">
+      <div>
+        <h1>Андрей</h1>
+        <div class="nick">na9asaki</div>
+      </div>
+    </div>
     <dl class="facts">
       <div class="fact"><dt>Опыт</dt><dd><strong>6 лет</strong> с Unity, из них 1,5 года коммерческой разработки в компании</dd></div>
       <div class="fact"><dt>Команда</dt><dd><strong>YTG</strong></dd></div>
