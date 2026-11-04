@@ -42,17 +42,18 @@
   a:hover { color: var(--accent); text-decoration-color: var(--accent); }
   .mono, .meta, td .tech, .eyebrow, .nick { font-family: "JetBrains Mono", ui-monospace, monospace; }
   .wrap { max-width: 960px; margin: 0 auto; padding: 0 16px; position: relative; }
+  header > .wrap { z-index: 1; }
 
   /* ---------- hero ---------- */
   header { position: relative; padding: 96px 0 64px; overflow: hidden; }
   header::before {
-    content: ""; position: absolute; inset: 0; pointer-events: none;
+    content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
     background:
       radial-gradient(600px 360px at 12% 0%, rgba(255, 154, 61, .20), transparent 70%),
       radial-gradient(520px 320px at 90% 10%, rgba(111, 140, 255, .14), transparent 70%);
   }
   header::after {
-    content: ""; position: absolute; inset: 0; pointer-events: none;
+    content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
     background-image:
       linear-gradient(var(--rule) 1px, transparent 1px),
       linear-gradient(90deg, var(--rule) 1px, transparent 1px);
@@ -184,7 +185,7 @@
   <div class="wrap">
     <span class="eyebrow"><span class="dot"></span>Unity-разработчик</span>
     <div class="id">
-      <img class="avatar" src="assets/avatar.jpg" alt="Аватар na9asaki" width="112" height="112">
+      <img class="avatar" src="assets/avatar.jpg?v=2" alt="Аватар na9asaki" width="112" height="112">
       <div>
         <h1>Андрей</h1>
         <div class="nick">na9asaki</div>
